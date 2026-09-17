@@ -30,12 +30,16 @@ const MiraboxPlugin: SurfacePlugin<MiraboxPluginInfo> = {
 	},
 
 	checkSupportsHidDevice: (device: HIDDevice): DiscoveredSurfaceInfo<MiraboxPluginInfo> | null => {
-		if (device.interface !== 0) return null
-
 		// Match the device against known models
-		const model = AllModels.find((model) =>
-			model.usbIds.some((usbId) => usbId.vendorId === device.vendorId && usbId.productIds.includes(device.productId)),
-		)
+		const model = AllModels.find((model) => {
+			const usbIdMatches = model.usbIds.some(
+				(usbId) => usbId.vendorId === device.vendorId && usbId.productIds.includes(device.productId),
+			)
+			if (!usbIdMatches || device.interface !== (model.hidInterface ?? 0)) return false
+			if (model.hidUsagePage !== undefined && device.usagePage !== model.hidUsagePage) return false
+			if (model.hidUsage !== undefined && device.usage !== model.hidUsage) return false
+			return true
+		})
 		if (!model) return null
 
 		logger.debug(`Checked HID device: ${model.productName}`)
