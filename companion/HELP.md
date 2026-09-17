@@ -49,11 +49,41 @@ The LCD strip also supports a swipe gesture. Swipe events are mapped to the rota
 
 ![Stream Dock N4 mapping](images/mirabox-streamdock.png?raw=true 'Stream Dock N4 mapping')
 
+### Mirabox Stream Dock N4 Pro
+
+_5×2 LCD keys, 4 rotary encoders with RGB LEDs, LCD strip with touch buttons_
+
+The N4 Pro uses the same Companion grid layout as the N4. The two rows of five LCD keys map directly to the first two rows. The four soft keys on the LCD strip are mapped to the first four buttons in the third row, and the four rotary encoders are mapped to the first four buttons in the fourth row.
+
+Unlike the N4, each N4 Pro rotary encoder provides separate press and release events. This means press actions remain active while an encoder is held down and release actions run when it is released. The touch strip is divided into four soft-key regions, and each region also provides separate press and release events.
+
+N4 Pro firmware `V4.N4 Pro_HJDF02.014` or later is required for correct rotary encoder press and release events. With older firmware, an encoder release may not be reported correctly.
+
+To use a rotary encoder, enable the `Enable Rotary Actions` checkbox for its button. The LCD strip swipe gesture is mapped to the rotary actions of the fifth button in the third row: swiping left runs the rotate-left actions and swiping right runs the rotate-right actions.
+
+Each rotary encoder has an RGB LED. The four LEDs follow the dominant colors of the four rotary buttons in the fourth row, so they can be controlled independently through the corresponding Companion button styles. The surface brightness setting also controls the LED brightness.
+
+Vibration can be enabled or disabled in the N4 Pro surface settings. It is enabled by default.
+
+![Stream Dock N4 Pro mapping](images/mirabox-streamdock-n4-pro.png?raw=true 'Stream Dock N4 Pro mapping')
+
+### Mirabox Stream Dock K1 Pro
+
+_3 rotary encoders, 3×2 LCD keys_
+
+K1 Pro firmware `V3.010.03.020` or later is required for correct rotary encoder press and release events. With older firmware, an encoder release may not be reported correctly.
+
 ### Mirabox Stream Dock M18V3
 
 _5x3 LCD keys, 3 buttons, 2 LEDs_
 
 Currently the LCD keys and the regular buttons are supported.
+
+### Mirabox Stream Dock H1 Pro
+
+_4×3 LCD keys_
+
+The twelve LCD keys map directly to a four-column by three-row Companion grid. Each key provides separate press and release events.
 
 ### Mirabox Stream Dock HSV293S, Ajazz AKP153, Ajazz AKP153E
 
