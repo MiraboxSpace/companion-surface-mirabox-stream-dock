@@ -14,7 +14,7 @@
 	"keywords": ["mirabox", "stream dock", "streamdock"],
 	"products": ["Mirabox Stream Dock"],
 	"usbIds": [
-		{ "vendorId": 26115, "productIds": [4101, 4102, 4103, 4099, 4098, 4116, 4114, 4113, 4128, 4117] },
+		{ "vendorId": 26115, "productIds": [4101, 4102, 4103, 4099, 4098, 4116, 4114, 4113, 4128, 4117, 4121] },
 		{ "vendorId": 21832, "productIds": [4145, 4136, 4104, 4129, 4097, 26224, 4128, 4146, 26228, 4133, 4144, 4147] },
 		{ "vendorId": 26114, "productIds": [4097, 4099, 4116] },
 		{ "vendorId": 5376, "productIds": [12291] },

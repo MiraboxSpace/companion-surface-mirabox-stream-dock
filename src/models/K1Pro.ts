@@ -22,7 +22,7 @@ export const K1ProDefinition: StreamDockModelDefinition = {
 		},
 		{
 			vendorId: 0x6603,
-			productIds: [0x1015],
+			productIds: [0x1015, 0x1019], // Standard and EU versions from the StreamDock SDK.
 		},
 	],
 
