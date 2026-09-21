@@ -36,8 +36,14 @@ const MiraboxPlugin: SurfacePlugin<MiraboxPluginInfo> = {
 				(usbId) => usbId.vendorId === device.vendorId && usbId.productIds.includes(device.productId),
 			)
 			if (!usbIdMatches || device.interface !== (model.hidInterface ?? 0)) return false
-			if (model.hidUsagePage !== undefined && device.usagePage !== model.hidUsagePage) return false
-			if (model.hidUsage !== undefined && device.usage !== model.hidUsage) return false
+			// macOS exposes all collections on an interface through the same HID path.
+			// Companion keeps the last collection for that path when opening a device,
+			// so its usage can differ from the collection that passed discovery.
+			// An explicit interface selector still excludes the keyboard interface.
+			if (process.platform !== 'darwin' || model.hidInterface === undefined) {
+				if (model.hidUsagePage !== undefined && device.usagePage !== model.hidUsagePage) return false
+				if (model.hidUsage !== undefined && device.usage !== model.hidUsage) return false
+			}
 			return true
 		})
 		if (!model) return null
@@ -59,8 +65,8 @@ const MiraboxPlugin: SurfacePlugin<MiraboxPluginInfo> = {
 		pluginInfo: MiraboxPluginInfo,
 		context: SurfaceContext,
 	): Promise<OpenSurfaceResult> => {
-		const device = await HIDAsync.open(pluginInfo.device.path).catch(() => {
-			throw new Error(`Device not found: ${pluginInfo.device.path}`)
+		const device = await HIDAsync.open(pluginInfo.device.path).catch((error: unknown) => {
+			throw new Error(`Failed to open HID device ${pluginInfo.device.path}: ${String(error)}`, { cause: error })
 		})
 
 		logger.debug(`Opening ${pluginInfo.device.path} device: ${pluginInfo.model.productName} (${surfaceId})`)
