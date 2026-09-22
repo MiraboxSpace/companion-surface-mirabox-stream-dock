@@ -73,6 +73,20 @@ _3 rotary encoders, 3×2 LCD keys_
 
 K1 Pro firmware `V3.010.03.020` or later is required for correct rotary encoder press and release events. With older firmware, an encoder release may not be reported correctly.
 
+### Mirabox Stream Dock N1
+
+_3×6 LCD keys, 2 buttons, 1 rotary encoder_
+
+The eighteen LCD keys use a three-column by six-row Companion grid. The two buttons and rotary encoder above the main key area share the first row positions with the three smaller LCD displays. Enable `Enable Rotary Actions` on the rotary encoder button to configure its left- and right-rotation actions.
+
+The N1 can operate in calculator, numeric keypad and console modes. Companion automatically switches it to console mode when connecting because this is the mode that accepts Companion images. Switching modes clears the device displays; when the N1 returns to console mode, Companion restores the configured key images automatically.
+
+### Mirabox Stream Dock M3
+
+_5×3 LCD keys, 3 rotary encoders_
+
+The fifteen LCD keys map directly to a five-column by three-row Companion grid. The three rotary encoders are placed in an additional column on the right, one encoder per row. Each encoder supports pressing, releasing and rotating in both directions. Enable `Enable Rotary Actions` on an encoder button to configure its left- and right-rotation actions.
+
 ### Mirabox Stream Dock M18V3
 
 _5x3 LCD keys, 3 buttons, 2 LEDs_

@@ -12,6 +12,17 @@ While developing the module, by using `yarn dev` the compiler will be run in wat
 
 ## Version History
 
+### 1.3.0 (2026-09-22)
+
+- feat: add support for Stream Dock N4 Pro, K1 Pro, H1 Pro, N1 and M3
+- feat: add N4 Pro rotary encoder RGB LED and vibration controls
+- feat: add press and release handling for N4 Pro rotary encoders and soft keys
+- feat: add K1 Pro rotary encoder support and device-specific HID image transfers
+- feat: add automatic console-mode switching and image restoration for N1 and H1 Pro
+- fix: handle H1 Pro cancel events as button releases for Companion long-press compatibility
+- fix: improve K1 Pro device detection and initialization on macOS
+- docs: add device layouts and firmware requirements for newly supported models
+
 ### 1.2.0 (2026-03-15)
 
 - feat: add XL
