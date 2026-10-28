@@ -12,7 +12,7 @@ export const N4ProDefinition: StreamDockModelDefinition = {
 	usbIds: [{ vendorId: 0x5548, productIds: [0x1008, 0x1021] }],
 	ledArrayLength: 12,
 	inputs: N4_1234Definition.inputs.map((input): StreamDockInputDefinition => {
-		if ((input.row === 2 || input.row === 3) && input.type === 'push') {
+		if (input.row === 2 && input.type === 'push') {
 			return { ...input, type: 'button' }
 		}
 
